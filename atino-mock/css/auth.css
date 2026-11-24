@@ -1,0 +1,11 @@
+/* auth.css — Trang đăng ký / đăng nhập */
+.auth-wrap { display: flex; justify-content: center; padding: 40px 0 8px; }
+.auth-card {
+  width: min(460px, 100%); background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 28px;
+}
+.auth-card h1 { font-size: 26px; margin-bottom: 6px; }
+.auth-card .lead { color: var(--muted); margin: 0 0 22px; }
+.auth-card .btn-primary { width: 100%; min-height: 46px; }
+.auth-links { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 18px; font-size: 14.5px; }
+.auth-hint { margin-top: 18px; padding: 10px 12px; background: var(--denim-soft); border-radius: var(--radius); font-size: 13.5px; }

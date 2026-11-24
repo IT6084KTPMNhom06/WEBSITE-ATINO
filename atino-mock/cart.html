@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Giỏ hàng — Atino Mock</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+<header class="site-header" id="site-header" data-testid="site-header">
+  <div class="topbar">Website mô phỏng phục vụ học tập và kiểm thử Selenium — không bán hàng thật.</div>
+  <div class="header-main">
+    <a id="home-link" data-testid="home-link" class="logo" href="index.html">ATINO MOCK</a>
+    <button id="menu-toggle" data-testid="menu-toggle" class="icon-btn menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
+    <nav id="main-nav" data-testid="main-nav" class="main-nav" aria-label="Điều hướng chính">
+      <a id="nav-home" data-testid="nav-home" href="index.html">Trang chủ</a>
+      <a id="nav-shirts" data-testid="nav-shirts" href="products.html?group=ao">Áo</a>
+      <a id="nav-pants" data-testid="nav-pants" href="products.html?group=quan">Quần</a>
+      <a id="nav-accessories" data-testid="nav-accessories" href="products.html?group=phukien">Phụ kiện</a>
+      <a id="products-link" data-testid="products-link" href="products.html">Tất cả sản phẩm</a>
+    </nav>
+    <form id="search-form" data-testid="search-form" class="search-form" role="search" action="products.html" method="get">
+      <label for="search-input" class="sr-only">Tìm kiếm sản phẩm</label>
+      <input id="search-input" data-testid="search-input" name="q" type="search" placeholder="Tìm sản phẩm..." autocomplete="off">
+      <button id="search-button" data-testid="search-button" type="submit">Tìm kiếm</button>
+    </form>
+    <div class="account-links" id="account-links" data-testid="account-links">
+      <span id="user-name" data-testid="user-name" hidden></span>
+      <a id="login-link" data-testid="login-link" href="login.html">Đăng nhập</a>
+      <a id="register-link" data-testid="register-link" href="register.html">Đăng ký</a>
+      <button id="logout-button" data-testid="logout-button" class="link-btn" type="button" hidden>Đăng xuất</button>
+      <a id="cart-link" data-testid="cart-link" href="cart.html">Giỏ hàng (<span id="cart-count" data-testid="cart-count">0</span>)</a>
+    </div>
+  </div>
+</header>
+<main id="main-content" data-testid="main-content">
+  <div class="container">
+    <h1 class="page-title" id="cart-title" data-testid="cart-title">Giỏ hàng</h1>
+    <div id="cart-message" data-testid="cart-message" class="form-message" role="alert"></div>
+    <div id="cart-empty" data-testid="cart-empty" class="cart-empty" hidden>
+      <p>Giỏ hàng của bạn đang trống.</p>
+      <a id="cart-continue" data-testid="cart-continue" class="btn btn-primary" href="products.html">Tiếp tục mua sắm</a>
+    </div>
+    <div id="cart-content" data-testid="cart-content" class="cart-layout" hidden>
+      <ul id="cart-items" data-testid="cart-items" class="cart-list"></ul>
+      <aside class="cart-summary" aria-label="Tóm tắt giỏ hàng">
+        <h2>Tổng đơn hàng</h2>
+        <p class="summary-row"><span>Tổng tiền</span> <strong id="cart-total" data-testid="cart-total">0đ</strong></p>
+        <a id="checkout-button" data-testid="checkout-button" class="btn btn-primary" href="checkout.html">Tiến hành đặt hàng</a>
+        <button id="cart-clear" data-testid="cart-clear" class="link-btn danger" type="button">Xóa toàn bộ giỏ hàng</button>
+      </aside>
+    </div>
+  </div>
+</main>
+<footer class="site-footer" id="site-footer" data-testid="site-footer">
+  <div class="footer-inner">
+    <nav class="footer-links" aria-label="Liên kết chân trang">
+      <a id="footer-about" data-testid="footer-about" href="#site-footer">Về chúng tôi</a>
+      <a id="footer-policy" data-testid="footer-policy" href="#site-footer">Chính sách</a>
+      <a id="footer-guide" data-testid="footer-guide" href="#site-footer">Hướng dẫn mua hàng</a>
+      <a id="footer-contact" data-testid="footer-contact" href="#site-footer">Liên hệ</a>
+    </nav>
+    <p class="footer-note">Demo website phục vụ học tập và kiểm thử Selenium. Không phải website thương mại chính thức.</p>
+    <p class="footer-note" id="footer-copyright" data-testid="footer-copyright">&copy; 2026 Atino Mock Testing Website</p>
+    <div class="test-tools" id="test-tools" data-testid="test-tools">
+      <p class="footer-note">Khu vực dành riêng cho kiểm thử — không phải chức năng của cửa hàng:</p>
+      <button id="reset-test-data" data-testid="reset-test-data" class="link-btn" type="button">RESET TEST DATA</button>
+      <span class="footer-note">(xóa users, currentUser, cart và tạo lại tài khoản test)</span>
+    </div>
+  </div>
+</footer>
+<div id="toast" data-testid="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

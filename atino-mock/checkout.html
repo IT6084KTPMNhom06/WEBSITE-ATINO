@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thanh toán — Atino Mock</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/checkout.css">
+</head>
+<body>
+<header class="site-header" id="site-header" data-testid="site-header">
+  <div class="topbar">Website mô phỏng phục vụ học tập và kiểm thử Selenium — không bán hàng thật.</div>
+  <div class="header-main">
+    <a id="home-link" data-testid="home-link" class="logo" href="index.html">ATINO MOCK</a>
+    <button id="menu-toggle" data-testid="menu-toggle" class="icon-btn menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
+    <nav id="main-nav" data-testid="main-nav" class="main-nav" aria-label="Điều hướng chính">
+      <a id="nav-home" data-testid="nav-home" href="index.html">Trang chủ</a>
+      <a id="nav-shirts" data-testid="nav-shirts" href="products.html?group=ao">Áo</a>
+      <a id="nav-pants" data-testid="nav-pants" href="products.html?group=quan">Quần</a>
+      <a id="nav-accessories" data-testid="nav-accessories" href="products.html?group=phukien">Phụ kiện</a>
+      <a id="products-link" data-testid="products-link" href="products.html">Tất cả sản phẩm</a>
+    </nav>
+    <form id="search-form" data-testid="search-form" class="search-form" role="search" action="products.html" method="get">
+      <label for="search-input" class="sr-only">Tìm kiếm sản phẩm</label>
+      <input id="search-input" data-testid="search-input" name="q" type="search" placeholder="Tìm sản phẩm..." autocomplete="off">
+      <button id="search-button" data-testid="search-button" type="submit">Tìm kiếm</button>
+    </form>
+    <div class="account-links" id="account-links" data-testid="account-links">
+      <span id="user-name" data-testid="user-name" hidden></span>
+      <a id="login-link" data-testid="login-link" href="login.html">Đăng nhập</a>
+      <a id="register-link" data-testid="register-link" href="register.html">Đăng ký</a>
+      <button id="logout-button" data-testid="logout-button" class="link-btn" type="button" hidden>Đăng xuất</button>
+      <a id="cart-link" data-testid="cart-link" href="cart.html">Giỏ hàng (<span id="cart-count" data-testid="cart-count">0</span>)</a>
+    </div>
+  </div>
+</header>
+<main id="main-content" data-testid="main-content">
+  <div class="container">
+    <h1 class="page-title" id="checkout-title" data-testid="checkout-title">Thanh toán</h1>
+    <div id="checkout-empty" data-testid="checkout-empty" class="checkout-empty" hidden>
+      <p>Giỏ hàng của bạn đang trống nên chưa thể thanh toán.</p>
+      <a id="checkout-back-cart" data-testid="checkout-back-cart" class="btn btn-primary" href="cart.html">Quay lại giỏ hàng</a>
+    </div>
+    <div class="checkout-layout">
+      <form id="checkout-form" data-testid="checkout-form" class="checkout-form" novalidate>
+        <h2>Thông tin giao hàng</h2>
+        <div id="checkout-message" data-testid="checkout-message" class="form-message" role="alert"></div>
+        <div class="field">
+          <label for="checkout-name">Họ tên</label>
+          <input id="checkout-name" data-testid="checkout-name" name="name" type="text" placeholder="Nguyễn Văn A" autocomplete="name">
+          <p id="checkout-name-error" data-testid="checkout-name-error" class="field-error"></p>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="checkout-phone">Số điện thoại</label>
+            <input id="checkout-phone" data-testid="checkout-phone" name="phone" type="tel" placeholder="0901234567" autocomplete="tel">
+            <p id="checkout-phone-error" data-testid="checkout-phone-error" class="field-error"></p>
+          </div>
+          <div class="field">
+            <label for="checkout-email">Email</label>
+            <input id="checkout-email" data-testid="checkout-email" name="email" type="text" inputmode="email" placeholder="ten@example.com" autocomplete="email">
+            <p id="checkout-email-error" data-testid="checkout-email-error" class="field-error"></p>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="checkout-province">Tỉnh/Thành phố</label>
+            <select id="checkout-province" data-testid="checkout-province" name="province"></select>
+          </div>
+          <div class="field">
+            <label for="checkout-district">Quận/Huyện</label>
+            <select id="checkout-district" data-testid="checkout-district" name="district"></select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="checkout-address">Địa chỉ</label>
+          <input id="checkout-address" data-testid="checkout-address" name="address" type="text" placeholder="Số nhà, tên đường" autocomplete="street-address">
+          <p id="checkout-address-error" data-testid="checkout-address-error" class="field-error"></p>
+        </div>
+        <div class="field">
+          <label for="checkout-note">Ghi chú</label>
+          <textarea id="checkout-note" data-testid="checkout-note" name="note" placeholder="Ghi chú cho đơn hàng (không bắt buộc)"></textarea>
+        </div>
+        <fieldset class="payment-options" id="payment-options" data-testid="payment-options">
+          <legend>Phương thức thanh toán</legend>
+          <label class="payment-option" for="payment-cod"><input id="payment-cod" data-testid="payment-cod" type="radio" name="payment" value="cod"> COD (thanh toán khi nhận hàng)</label>
+          <label class="payment-option" for="payment-bank"><input id="payment-bank" data-testid="payment-bank" type="radio" name="payment" value="bank"> Chuyển khoản</label>
+          <p id="checkout-payment-error" data-testid="checkout-payment-error" class="field-error"></p>
+        </fieldset>
+        <button id="checkout-submit" data-testid="checkout-submit" class="btn btn-primary" type="submit">Đặt hàng</button>
+      </form>
+      <aside id="checkout-summary" data-testid="checkout-summary" class="checkout-summary" aria-label="Tóm tắt đơn hàng">
+        <h2>Đơn hàng của bạn</h2>
+        <ul id="checkout-items" data-testid="checkout-items" class="summary-list"></ul>
+        <p class="checkout-total-row"><span>Tổng tiền</span> <strong id="checkout-total" data-testid="checkout-total">0đ</strong></p>
+        <p class="sim-note">Website mô phỏng: không tạo đơn hàng thật và không gửi dữ liệu thanh toán.</p>
+      </aside>
+    </div>
+  </div>
+</main>
+<footer class="site-footer" id="site-footer" data-testid="site-footer">
+  <div class="footer-inner">
+    <nav class="footer-links" aria-label="Liên kết chân trang">
+      <a id="footer-about" data-testid="footer-about" href="#site-footer">Về chúng tôi</a>
+      <a id="footer-policy" data-testid="footer-policy" href="#site-footer">Chính sách</a>
+      <a id="footer-guide" data-testid="footer-guide" href="#site-footer">Hướng dẫn mua hàng</a>
+      <a id="footer-contact" data-testid="footer-contact" href="#site-footer">Liên hệ</a>
+    </nav>
+    <p class="footer-note">Demo website phục vụ học tập và kiểm thử Selenium. Không phải website thương mại chính thức.</p>
+    <p class="footer-note" id="footer-copyright" data-testid="footer-copyright">&copy; 2026 Atino Mock Testing Website</p>
+    <div class="test-tools" id="test-tools" data-testid="test-tools">
+      <p class="footer-note">Khu vực dành riêng cho kiểm thử — không phải chức năng của cửa hàng:</p>
+      <button id="reset-test-data" data-testid="reset-test-data" class="link-btn" type="button">RESET TEST DATA</button>
+      <span class="footer-note">(xóa users, currentUser, cart và tạo lại tài khoản test)</span>
+    </div>
+  </div>
+</footer>
+<div id="toast" data-testid="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

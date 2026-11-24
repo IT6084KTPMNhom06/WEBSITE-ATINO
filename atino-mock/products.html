@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Danh sách sản phẩm — Atino Mock</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+<header class="site-header" id="site-header" data-testid="site-header">
+  <div class="topbar">Website mô phỏng phục vụ học tập và kiểm thử Selenium — không bán hàng thật.</div>
+  <div class="header-main">
+    <a id="home-link" data-testid="home-link" class="logo" href="index.html">ATINO MOCK</a>
+    <button id="menu-toggle" data-testid="menu-toggle" class="icon-btn menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="main-nav">&#9776;</button>
+    <nav id="main-nav" data-testid="main-nav" class="main-nav" aria-label="Điều hướng chính">
+      <a id="nav-home" data-testid="nav-home" href="index.html">Trang chủ</a>
+      <a id="nav-shirts" data-testid="nav-shirts" href="products.html?group=ao">Áo</a>
+      <a id="nav-pants" data-testid="nav-pants" href="products.html?group=quan">Quần</a>
+      <a id="nav-accessories" data-testid="nav-accessories" href="products.html?group=phukien">Phụ kiện</a>
+      <a id="products-link" data-testid="products-link" href="products.html">Tất cả sản phẩm</a>
+    </nav>
+    <form id="search-form" data-testid="search-form" class="search-form" role="search" action="products.html" method="get">
+      <label for="search-input" class="sr-only">Tìm kiếm sản phẩm</label>
+      <input id="search-input" data-testid="search-input" name="q" type="search" placeholder="Tìm sản phẩm..." autocomplete="off">
+      <button id="search-button" data-testid="search-button" type="submit">Tìm kiếm</button>
+    </form>
+    <div class="account-links" id="account-links" data-testid="account-links">
+      <span id="user-name" data-testid="user-name" hidden></span>
+      <a id="login-link" data-testid="login-link" href="login.html">Đăng nhập</a>
+      <a id="register-link" data-testid="register-link" href="register.html">Đăng ký</a>
+      <button id="logout-button" data-testid="logout-button" class="link-btn" type="button" hidden>Đăng xuất</button>
+      <a id="cart-link" data-testid="cart-link" href="cart.html">Giỏ hàng (<span id="cart-count" data-testid="cart-count">0</span>)</a>
+    </div>
+  </div>
+</header>
+<main id="main-content" data-testid="main-content">
+  <div class="container">
+    <h1 id="products-title" data-testid="products-title" class="page-title">Danh sách sản phẩm</h1>
+    <button id="filter-toggle" data-testid="filter-toggle" class="btn btn-outline filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">Bộ lọc</button>
+    <div class="catalog">
+      <aside id="filter-panel" data-testid="filter-panel" class="filter-panel" aria-label="Bộ lọc sản phẩm">
+        <h2>Bộ lọc</h2>
+        <form id="filter-form" data-testid="filter-form" novalidate>
+          <fieldset class="filter-group" id="filter-group-category" data-testid="filter-group-category">
+            <legend>Danh mục</legend>
+        <label class="filter-option" for="filter-category-polo"><input id="filter-category-polo" data-testid="filter-category-polo" type="checkbox" name="category" value="polo"> Áo Polo</label>
+        <label class="filter-option" for="filter-category-thun"><input id="filter-category-thun" data-testid="filter-category-thun" type="checkbox" name="category" value="thun"> Áo thun</label>
+        <label class="filter-option" for="filter-category-somi"><input id="filter-category-somi" data-testid="filter-category-somi" type="checkbox" name="category" value="somi"> Sơ mi</label>
+        <label class="filter-option" for="filter-category-jeans"><input id="filter-category-jeans" data-testid="filter-category-jeans" type="checkbox" name="category" value="jeans"> Quần Jeans</label>
+        <label class="filter-option" for="filter-category-quanau"><input id="filter-category-quanau" data-testid="filter-category-quanau" type="checkbox" name="category" value="quanau"> Quần âu</label>
+        <label class="filter-option" for="filter-category-kaki"><input id="filter-category-kaki" data-testid="filter-category-kaki" type="checkbox" name="category" value="kaki"> Quần Kaki</label>
+        <label class="filter-option" for="filter-category-phukien"><input id="filter-category-phukien" data-testid="filter-category-phukien" type="checkbox" name="category" value="phukien"> Phụ kiện</label>
+          </fieldset>
+          <fieldset class="filter-group" id="filter-group-color" data-testid="filter-group-color">
+            <legend>Màu sắc</legend>
+        <label class="filter-option" for="filter-color-black"><input id="filter-color-black" data-testid="filter-color-black" type="checkbox" name="color" value="black"> Đen</label>
+        <label class="filter-option" for="filter-color-white"><input id="filter-color-white" data-testid="filter-color-white" type="checkbox" name="color" value="white"> Trắng</label>
+        <label class="filter-option" for="filter-color-blue"><input id="filter-color-blue" data-testid="filter-color-blue" type="checkbox" name="color" value="blue"> Xanh</label>
+        <label class="filter-option" for="filter-color-gray"><input id="filter-color-gray" data-testid="filter-color-gray" type="checkbox" name="color" value="gray"> Xám</label>
+        <label class="filter-option" for="filter-color-beige"><input id="filter-color-beige" data-testid="filter-color-beige" type="checkbox" name="color" value="beige"> Be</label>
+          </fieldset>
+          <fieldset class="filter-group" id="filter-group-size" data-testid="filter-group-size">
+            <legend>Kích cỡ</legend>
+        <label class="filter-option" for="filter-size-s"><input id="filter-size-s" data-testid="filter-size-s" type="checkbox" name="size" value="S"> S</label>
+        <label class="filter-option" for="filter-size-m"><input id="filter-size-m" data-testid="filter-size-m" type="checkbox" name="size" value="M"> M</label>
+        <label class="filter-option" for="filter-size-l"><input id="filter-size-l" data-testid="filter-size-l" type="checkbox" name="size" value="L"> L</label>
+        <label class="filter-option" for="filter-size-xl"><input id="filter-size-xl" data-testid="filter-size-xl" type="checkbox" name="size" value="XL"> XL</label>
+        <label class="filter-option" for="filter-size-xxl"><input id="filter-size-xxl" data-testid="filter-size-xxl" type="checkbox" name="size" value="XXL"> XXL</label>
+          </fieldset>
+          <fieldset class="filter-group" id="filter-group-price" data-testid="filter-group-price">
+            <legend>Khoảng giá</legend>
+        <label class="filter-option" for="filter-price-under300"><input id="filter-price-under300" data-testid="filter-price-under300" type="checkbox" name="price" value="under300"> Dưới 300.000</label>
+        <label class="filter-option" for="filter-price-300-500"><input id="filter-price-300-500" data-testid="filter-price-300-500" type="checkbox" name="price" value="300-500"> 300.000 - 500.000</label>
+        <label class="filter-option" for="filter-price-500-700"><input id="filter-price-500-700" data-testid="filter-price-500-700" type="checkbox" name="price" value="500-700"> 500.000 - 700.000</label>
+        <label class="filter-option" for="filter-price-over700"><input id="filter-price-over700" data-testid="filter-price-over700" type="checkbox" name="price" value="over700"> Trên 700.000</label>
+          </fieldset>
+          <div class="filter-buttons">
+            <button id="apply-filter" data-testid="apply-filter" class="btn btn-primary" type="submit">ÁP DỤNG BỘ LỌC</button>
+            <button id="clear-filter" data-testid="clear-filter" class="btn btn-outline" type="button">XÓA BỘ LỌC</button>
+          </div>
+        </form>
+      </aside>
+
+      <section aria-label="Kết quả sản phẩm">
+        <div class="toolbar">
+          <div>
+            <p id="search-result-count" data-testid="search-result-count" class="result-count" role="status">Tìm thấy 0 sản phẩm</p>
+            <p id="search-query-label" data-testid="search-query-label" class="query-label" hidden></p>
+          </div>
+          <div class="sort-field">
+            <label for="sort-select">Sắp xếp:</label>
+            <select id="sort-select" data-testid="sort-select" name="sort">
+              <option value="newest">Mới nhất</option>
+              <option value="price-asc">Giá thấp đến cao</option>
+              <option value="price-desc">Giá cao đến thấp</option>
+              <option value="sale">Đang giảm giá</option>
+            </select>
+          </div>
+        </div>
+        <p id="no-search-result" data-testid="no-search-result" class="empty-box" hidden>Không tìm thấy sản phẩm phù hợp.</p>
+        <div id="product-grid" data-testid="product-grid" class="product-grid"></div>
+      </section>
+    </div>
+  </div>
+</main>
+<footer class="site-footer" id="site-footer" data-testid="site-footer">
+  <div class="footer-inner">
+    <nav class="footer-links" aria-label="Liên kết chân trang">
+      <a id="footer-about" data-testid="footer-about" href="#site-footer">Về chúng tôi</a>
+      <a id="footer-policy" data-testid="footer-policy" href="#site-footer">Chính sách</a>
+      <a id="footer-guide" data-testid="footer-guide" href="#site-footer">Hướng dẫn mua hàng</a>
+      <a id="footer-contact" data-testid="footer-contact" href="#site-footer">Liên hệ</a>
+    </nav>
+    <p class="footer-note">Demo website phục vụ học tập và kiểm thử Selenium. Không phải website thương mại chính thức.</p>
+    <p class="footer-note" id="footer-copyright" data-testid="footer-copyright">&copy; 2026 Atino Mock Testing Website</p>
+    <div class="test-tools" id="test-tools" data-testid="test-tools">
+      <p class="footer-note">Khu vực dành riêng cho kiểm thử — không phải chức năng của cửa hàng:</p>
+      <button id="reset-test-data" data-testid="reset-test-data" class="link-btn" type="button">RESET TEST DATA</button>
+      <span class="footer-note">(xóa users, currentUser, cart và tạo lại tài khoản test)</span>
+    </div>
+  </div>
+</footer>
+<div id="toast" data-testid="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+/* cart.css — Giỏ hàng */
+.cart-layout { display: grid; grid-template-columns: 1fr 340px; gap: 28px; align-items: start; }
+.cart-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.cart-item {
+  display: grid; grid-template-columns: 90px 1fr auto auto auto; gap: 16px; align-items: center;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px;
+}
+.cart-thumb img { width: 90px; height: 108px; object-fit: cover; border-radius: 4px; }
+.cart-name { font-weight: 600; text-decoration: none; text-transform: none; }
+.cart-name:hover { text-decoration: underline; }
+.cart-variant { margin: 2px 0; color: var(--muted); font-size: 13.5px; }
+.cart-unit { margin: 0; font-weight: 600; }
+.qty-control { display: inline-flex; align-items: center; }
+.qty-control .qty-btn:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+.qty-control .qty-btn:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+.qty-control .qty-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.qty-value { min-width: 48px; min-height: 42px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid #b9c2cb; border-left: 0; border-right: 0; background: #fff; font-weight: 600; }
+.cart-line-total { margin: 0; text-align: right; white-space: nowrap; }
+.cart-summary { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.cart-summary h2 { font-size: 18px; margin-bottom: 14px; }
+.summary-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; font-weight: 600; }
+.summary-row strong { font-size: 22px; }
+.cart-summary .btn { width: 100%; min-height: 48px; }
+.cart-summary .link-btn { display: block; margin: 14px auto 0; }
+.cart-empty { background: var(--card); border: 1px dashed #b9c2cb; border-radius: var(--radius); padding: 48px 16px; text-align: center; }
+.cart-empty p { font-weight: 600; font-size: 17px; margin: 0 0 16px; }
+
+@media (max-width: 960px) {
+  .cart-layout { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .cart-item { grid-template-columns: 72px 1fr; }
+  .cart-thumb img { width: 72px; height: 86px; }
+  .cart-item .qty-control, .cart-item .cart-line-total, .cart-item .link-btn { grid-column: 2; justify-self: start; }
+  .cart-line-total { text-align: left; }
+}
